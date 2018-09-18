@@ -17,4 +17,11 @@ extension Comparable {
         if self == value { return .equalTo }
         return self < value ? .lessThan : .greaterThan
     }
+    
+    /// An alias for `Comparable.compare(to:)`.
+    public static func <=>(left: Self, right: Self) -> Ordering {
+        return left.compare(to: right)
+    }
 }
+
+infix operator <=>: ComparisonPrecedence
